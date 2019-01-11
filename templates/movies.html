@@ -1,0 +1,37 @@
+{% extends "index.html" %}
+
+
+{% block content %}
+<style>
+div.body{
+	background-size: 100%;
+	background-image: url("static/image/movie.jpg");
+}
+</style>
+<div class="body">
+	<div class="container-fluid">
+			<form method = "POST">
+			{{ form.hidden_tag() }}
+			 <div class="form-group">
+		    <label for="formGroupExampleInput">Example label</label>
+		    {{ form.movie_name() }}
+		  </div>
+			<input type="submit" class="btn btn-dark">
+		</form>
+
+		{% if movie_name %}
+		<div>
+			<h1>Вот список фильмов на этот день {{movie_name}}</h1>
+			<ul class="list-group">
+		  <li class="list-group-item">Dapibus ac facilisis in</li>
+		  <li class="list-group-item list-group-item-success">A simple success list group item</li>
+		</ul>
+		</div>
+		{% else %}
+		<h1>Напишите дату</h1>
+		{% endif %}
+	</div>
+
+{% endblock %}
+
+</div>
